@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carte de visite – Mailhès Pottier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #122033 0, #050814 50%, #02030a 100%);
+      color: #f5f5f5;
+    }
+
+    .card-wrapper {
+      padding: 20px;
+    }
+
+    .card {
+      width: 360px;
+      max-width: 92vw;
+      border-radius: 28px;
+      padding: 26px 20px;
+      background: linear-gradient(155deg, #071020 0%, #10192b 40%, #060b16 100%);
+      border: 1.5px solid rgba(227, 6, 19, 0.85);
+      box-shadow:
+        0 0 30px rgba(227, 6, 19, 0.45),
+        0 25px 60px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Logo */
+    .logo-box {
+      align-self: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 22px;
+      background: #131b27;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+
+    .logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    /* Identité */
+    .identity {
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .identity .company {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c2d1ea;
+      margin-bottom: 4px;
+    }
+
+    .identity .name {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .identity .role {
+      font-size: 0.95rem;
+      color: #a8b6d4;
+      margin-top: 2px;
+    }
+
+    /* Boutons – style Ludovic Robert */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-width: 130px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+    }
+
+    .action-btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .action-btn:active {
+      transform: translateY(2px) scale(0.97);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.9);
+      filter: brightness(0.92);
+    }
+
+    /* Téléphone */
+    .action-btn.phone {
+      background: radial-gradient(circle at 30% 20%, #8bbdff, #6ba7ff 60%, #3c7ed6 100%);
+      box-shadow:
+        0 0 10px rgba(107, 167, 255, 0.7),
+        0 12px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    /* E-mail */
+    .action-btn.mail {
+      background: radial-gradient(circle at 30% 20%, #0053c3, #003b88 65%, #001f4c 100%);
+      box-shadow:
+        0 0 10px rgba(0, 59, 136, 0.7),
+        0 12px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Ajouter le contact */
+    .action-btn.contact {
+      background: radial-gradient(circle at 30% 20%, #d2ddf5, #a7b4d9 60%, #6b7595 100%);
+      box-shadow:
+        0 0 10px rgba(162, 179, 215, 0.7),
+        0 12px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Localisation */
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9aaee0;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    .map-wrapper {
+      margin-top: 2px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 59, 136, 0.4);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 210px;
+      border: 0;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #8f9abc;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-wrapper">
+    <div class="card">
+
+      <!-- Logo -->
+      <div class="logo-box">
+        <img src="IMG_7678.jpg" alt="Mailhès Pottier" />
+      </div>
+
+      <!-- Identité -->
+      <div class="identity">
+        <div class="company">Société Mailhès Pottier</div>
+        <div class="name">Rémi Delchet</div>
+        <div class="role">Conducteur de travaux</div>
+      </div>
+
+      <!-- Boutons -->
+      <div class="actions">
+        <a class="action-btn phone" href="tel:0630451553">
+          <span class="icon">📞</span>
+          <span>Appeler</span>
+        </a>
+
+        <a class="action-btn mail" href="mailto:rdelchet@mailhes-pottier.fr">
+          <span class="icon">✉️</span>
+          <span>E-mail</span>
+        </a>
+
+        <a
+          class="action-btn contact"
+          download="Remi-Delchet.vcf"
+          href='data:text/vcard;charset=utf-8,
+BEGIN:VCARD%0AVERSION:3.0%0AFN:Rémi Delchet%0AN:Delchet;Rémi;;; %0AORG:Mailhès Pottier%0ATITLE:Conducteur de travaux%0ATEL;TYPE=CELL:06 30 45 15 53%0AEMAIL:rdelchet@mailhes-pottier.fr%0AURL:https://www.mailhes-pottier.com%0AEND:VCARD'
+        >
+          <span class="icon">➕</span>
+          <span>Ajouter le contact</span>
+        </a>
+      </div>
+
+      <!-- Localisation -->
+      <div>
+        <div class="section-title">Localisation</div>
+        <div class="map-wrapper">
+          <iframe src="https://www.google.com/maps?q=Mailhes%20Pottier&output=embed" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="footer-text">
+        Carte de visite dématérialisée – Mailhès Pottier
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
